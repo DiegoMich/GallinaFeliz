@@ -14,3 +14,18 @@ body {
     font-size: 80px;
     margin: 20px 0px 0px 0px;
 }
+
+#begin {
+    color: white;
+    position: absolute;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+}
+
+#sound {
+    font-size: xx-large;
+}
+
+#sound:hover {
+    cursor: pointer;
+}

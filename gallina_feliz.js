@@ -14,18 +14,25 @@ $(function() {
     // Posicionar puntos y mostrar
     puntosMove();
 
-    // Pantalla completa
-    fullScreen();
+    // Mostrar mensaje inicial
+    pressStart();
+
+    // Evento mute
+    audio = document.getElementById('audio');
+    audio.volume = 0.5;
+    $('#sound').on('click', mute);
 });
 
-// Evento keypress
+// Evento keypress salto
 $(document).on('keypress', function(e) {
+    // Esconder leyenda
+    $('#begin').hide();
+
     if (!moviendo) {
         moverGallina();
 
         if (startMusic) {
             audio = document.getElementById('audio');
-            audio.volume = 0.5;
             audio.play();
             startMusic = false;
         }
@@ -35,6 +42,13 @@ $(document).on('keypress', function(e) {
         puntos.text(score.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false}));
     }
 })
+
+// Evento keypress reset
+$(document).keyup(function(e) {
+    if (e.key === "Escape") { 
+        location.reload();
+    }
+});
 
 // Mover la gallina
 function moverGallina() {
@@ -88,4 +102,26 @@ function puntosMove() {
     puntos = $('#puntos');
     puntos.css('left', $(window).width() - puntos.width() - 60);
     puntos.show();
+}
+
+function pressStart() {
+    msj = $('#begin');
+
+    msj.css('left', $(window).width() / 2 - msj.width() / 2);
+    msj.css('top', $(window).height() / 2 + 100);
+
+    msj.show();    
+}
+
+function mute() {
+    audio = document.getElementById('audio');
+    isMuted = audio.volume == 0;
+
+    if (isMuted) {
+        audio.volume = 0.5;
+        $('#sound').text('🔈');
+    } else {
+        audio.volume = 0;
+        $('#sound').text('🔇');
+    }
 }
