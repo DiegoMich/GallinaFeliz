@@ -7,10 +7,10 @@ body {
     width: 100%;
 }
 
-h1 {
+#puntos {
     color: white;
     position: absolute;
-    font-family: cursive;
+    font-family: fantasy;
     font-size: 80px;
     margin: 20px 0px 0px 0px;
 }
