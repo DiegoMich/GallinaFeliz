@@ -17,14 +17,30 @@ $(function() {
     // Mostrar mensaje inicial
     pressStart();
 
+    // Evento salto click
+    $('body').on('click', {click: true}, salto);
+
     // Evento mute
     audio = document.getElementById('audio');
     audio.volume = 0.5;
     $('#sound').on('click', mute);
 });
 
-// Evento keypress salto
-$(document).on('keypress', function(e) {
+// Evento keypress salto teclas
+$(document).on('keypress', {click: false}, salto);
+
+// Evento keypress reset
+$(document).keyup(function(e) {
+    if (e.key === "Escape") { 
+        location.reload();
+    }
+});
+
+function salto(e) {
+
+    if (e.target.nodeName == "LABEL")
+    return;
+
     // Esconder leyenda
     $('#begin').hide();
 
@@ -41,14 +57,8 @@ $(document).on('keypress', function(e) {
         puntos = $('#puntos');
         puntos.text(score.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false}));
     }
-})
+}
 
-// Evento keypress reset
-$(document).keyup(function(e) {
-    if (e.key === "Escape") { 
-        location.reload();
-    }
-});
 
 // Mover la gallina
 function moverGallina() {

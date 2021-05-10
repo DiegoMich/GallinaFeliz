@@ -1,5 +1,6 @@
 body {
     background-color: #78d4f5;
+    height: 100vh;
 }
 
 .container {
@@ -24,6 +25,13 @@ body {
 
 #sound {
     font-size: xx-large;
+}
+
+.disableCaret{
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;       
 }
 
 #sound:hover {
