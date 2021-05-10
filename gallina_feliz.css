@@ -1,0 +1,16 @@
+body {
+    background-color: #78d4f5;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    font-family: cursive;
+    font-size: 80px;
+    margin: 20px 0px 0px 0px;
+}
